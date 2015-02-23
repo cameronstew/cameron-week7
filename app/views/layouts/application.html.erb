@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CameronWeek5</title>
+  <title>CameronWeek7</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <% if current_user %>
+  <p>
+    <span>
+      <%= current_user.user_name %> |
+      <%= link_to "Logout", signout_path %>
+    </span>
+    <% else %>
+    <span>
+      <%= link_to "Login", signin_path %> |
+      <%= link_to "Register", signup_path %>
+    </span>
+  </p>
+
+  <% end %>
+
+<p>
 <%= yield %>
+</p>
 
 </body>
 </html>

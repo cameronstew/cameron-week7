@@ -1,0 +1,27 @@
+<%= form_for @user, url: registrations_path, html: { class: "registration-form" } do |f| %>
+<h1>Register</h1>
+
+<% if f.object.errors.any? %>
+<ul class="errors">
+  <% f.object.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<div>
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %>
+</div>
+<div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div>
+  <%= f.label :password_confirmation, "Confirm" %>
+  <%= f.password_field :password_confirmation %>
+</div>
+<div>
+  <%= f.submit "Sign Up" %>
+</div>
+<% end %>

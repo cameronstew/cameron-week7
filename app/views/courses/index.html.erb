@@ -9,14 +9,18 @@
   <thead>
     <tr>
       <th>Course Title</th>
-      <th>Day Course</th>
+      <th>Day or Night</th>
     </tr>
   </thead>
   <tbody>
     <% @courses.each do |course| %>
     <tr>
       <th><%= link_to course.title, course_path(course) %></th>
-      <th><%= course.day %></th>
+      <% if course.day? %>
+        <th>Day</th>
+        <% else %>
+        <th>Night</th>
+      <% end %>
       <th><%= link_to "Edit", edit_course_path(course) %></th>
       <th><%= link_to "Delete", course_path(course), method: 'delete' %></th>
     </tr>
