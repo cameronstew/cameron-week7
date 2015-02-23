@@ -1,0 +1,14 @@
+<%= form_for @course do |f| %>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :day %>
+  <%= f.check_box :day %>
+</p>
+<p>
+  <%= f.submit %>
+  <%= link_to "Cancel", root_path %>
+</p>
+<% end %>

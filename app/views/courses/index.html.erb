@@ -13,7 +13,7 @@
   <tbody>
     <% @courses.each do |course| %>
     <tr>
-      <th><%= course.title %></th>
+      <th><%= link_to course.title, course_path(course) %></th>
       <th><%= course.day %></th>
       <th><%= link_to "Edit", edit_course_path(course) %></th>
       <th><%= link_to "Delete", course_path(course), method: 'delete' %></th>
