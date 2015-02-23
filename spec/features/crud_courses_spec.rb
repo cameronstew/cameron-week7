@@ -44,7 +44,9 @@ describe 'User can CRUD courses' do
 
   it 'User can delete course' do
     @course = Course.create(title: "testing", day: true)
-    @course.destroy
+    visit("/courses/#{@course.id}")
+    click_link 'Delete'
+    expect(page).to have_content "Course sucessfully deleted"
   end
 
 
