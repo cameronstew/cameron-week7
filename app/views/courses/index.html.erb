@@ -1,0 +1,23 @@
+<p> Below are all courses listed</p>
+
+
+<%= link_to "Add new course", new_course_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Course Title</th>
+      <th>Day Course</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+    <tr>
+      <th><%= course.title %></th>
+      <th><%= course.day %></th>
+      <th><%= link_to "Edit", edit_course_path(course) %></th>
+      <th><%= link_to "Delete", course_path(course), method: 'delete' %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
